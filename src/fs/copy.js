@@ -1,5 +1,13 @@
+import fs from "fs";
+
+const error = "FS operation failed";
+
 const copy = async () => {
-    // Write your code here 
+  fs.cp("src/fs/files", "src/fs/copyDirFiles", { recursive: true }, (err) => {
+    if (err) {
+      throw new Error(error)
+    }
+  });
 };
 
 await copy();
