@@ -3,16 +3,18 @@ import { release, version } from "os";
 import { createServer as createServerHttp } from "http";
 import "./files/c.js";
 
-const importAssertJSON = { assert: { type: "json" } };
+const assertImportParam = { assert: { type: "json" } };
 const random = Math.random();
 
 let unknownObject;
 
 if (random > 0.5) {
-  unknownObject = await import("./files/a.json", importAssertJSON)
+  // this way of importing EXPERIMENTAL
+  // An alternative is to use the normal import, above
+  unknownObject = await import("./files/a.json", assertImportParam)
     .then((module) => module.default);
 } else {
-  unknownObject = await import("./files/b.json", importAssertJSON)
+  unknownObject = await import("./files/b.json", assertImportParam)
     .then((module) => module.default);
 }
 
