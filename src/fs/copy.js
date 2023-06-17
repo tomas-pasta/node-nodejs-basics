@@ -1,11 +1,10 @@
 import fs from "fs";
-
-const error = "FS operation failed";
+import dict from './_dict.js';
 
 const copy = async () => {
   fs.cp("src/fs/files", "src/fs/copyDirFiles", { recursive: true }, (err) => {
     if (err) {
-      throw new Error(error)
+      throw new Error(dict.error)
     }
   });
 };

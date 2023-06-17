@@ -1,11 +1,10 @@
 import fs from "fs";
-
-const error = "FS operation failed";
+import dict from './_dict.js';
 
 const list = async () => {
   fs.readdir("src/fs/files", (err, files) => {
     if (err) {
-      throw new Error(error);
+      throw new Error(dict.error);
     }
 
     console.log(files);

@@ -1,11 +1,10 @@
 import fs from "fs";
-
-const error = "FS operation failed";
+import dict from './_dict.js';
 
 const remove = async () => {
   fs.rm("src/fs/files/fileToRemove.txt", (err) => {
     if (err) {
-      throw new Error(error);
+      throw new Error(dict.error);
     }
   });
 };
